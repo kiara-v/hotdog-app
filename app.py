@@ -1,7 +1,7 @@
 from flask import (
     Blueprint, Flask, flash, redirect, render_template, request, url_for
 )
-
+from waitress import serve
 from .model import is_hotdog
 import os
 
@@ -50,4 +50,5 @@ def hotdog_result():
     return render_template('result.html', result = result)
                            
 if __name__ == '__main__':
- 	app.run()
+    serve(app)
+ 	# app.run()
