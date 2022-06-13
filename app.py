@@ -50,5 +50,5 @@ def hotdog_result():
     return render_template('result.html', result = result)
                            
 if __name__ == '__main__':
-    serve(app)
+    serve(app, host='0.0.0.0', port=5000, url_scheme='https')
  	# app.run()

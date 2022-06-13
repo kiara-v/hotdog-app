@@ -1,1 +1,1 @@
-web: waitress-serve --port=8080 myapp:api app:app
+web: waitress-serve --port=5000 hotdog-app.wsgi:app --call 'flaskr:app'
