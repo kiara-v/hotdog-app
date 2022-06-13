@@ -1,11 +1,11 @@
 from flask import (
-    Blueprint, Flask, flash, redirect, render_template, request, url_for
+    Flask, flash, redirect, render_template, request
 )
 
 import model
 
 app = Flask(__name__)
-server_address = "http://kiaravong.pythonanywhere.com"
+server_address = "http://127.0.0.1:5000"
 
 # A simple landing page
 @app.route('/')

@@ -1,9 +1,5 @@
-import os
-
-from flask import Flask, flash, request, redirect
-
+from flask import Flask
 from . import app as base_app
-from . import model
 
 def create_app(test_config=None):
     # create and configure the app
