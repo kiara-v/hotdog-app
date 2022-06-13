@@ -5,12 +5,12 @@ from flask import (
 from .model import is_hotdog
 
 base = Blueprint('base', __name__, template_folder='templates')
-server_address = "hotdog-app.herokuapp.com"
+# server_address = "hotdog-app.herokuapp.com"
 
 # A simple landing page
 @base.route('/')
 def index():
-    return render_template('index.html', server_address = server_address)
+    return render_template('index.html')
     # base_page_html = f"""
     # <html>
     #    <body>
@@ -32,11 +32,11 @@ def hotdog_result():
 	# Redirect back to landing page if nothing was submitted
     if 'file' not in request.files:
         flash('No file uploaded')
-        return redirect(f'{server_address}/')
+        return redirect(f'{index}/')
     file = request.files['file']
     if file.filename == '':
         flash('No selected file')
-        return redirect(f'{server_address}/')
+        return redirect(f'{index}/')
 
     if is_hotdog(file):
         result = "✅ hotdog"
