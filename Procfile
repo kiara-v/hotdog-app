@@ -1,1 +1,1 @@
-web: gunicorn --bind 0.0.0.0:$PORT app:app
+web: waitress-serve --listen=*:8000 myapp.wsgi:application app:app
