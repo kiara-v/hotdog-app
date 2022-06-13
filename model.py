@@ -7,6 +7,9 @@ from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.applications.resnet50 import ResNet50
 from tensorflow.keras.applications.resnet50 import preprocess_input, decode_predictions
 
+# from tensorflow.keras.applications.resnet50 import ResNet50
+# from tensorflow.keras.applications.resnet50 import preprocess_input, decode_predictions
+
 import ssl
 
 ssl._create_default_https_context = ssl._create_unverified_context

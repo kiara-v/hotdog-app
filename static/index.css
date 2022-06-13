@@ -44,13 +44,6 @@ body {
 	font-size: 7vw;
 }
 
-
-svg {
-	height: 5vw;
-	width: 5vw;
-}
-
-
 .wrapper .file-upload input[type=file] {
 	height: 15vw;
 	width: 15vw;
@@ -137,5 +130,3 @@ input[type="submit"] {
 	-ms-transition: all 0.3s ease;
 	transition: all 0.3s ease;
   }  
-
-
