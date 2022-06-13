@@ -6,7 +6,7 @@ from . import model
 import os
 
 app = Flask(__name__)
-server_address = "http://127.0.0.1:5000"
+server_address = ""
 
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.config["CACHE_TYPE"] = "null"
