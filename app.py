@@ -5,7 +5,7 @@ from flask import (
 from .model import is_hotdog
 
 base = Blueprint('base', __name__, template_folder='templates')
-server_address = ""
+server_address = "hotdog-app.herokuapp.com"
 
 # A simple landing page
 @base.route('/')
