@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>hotdog?</title>
+      <link href="{{ url_for('static', filename='index.css')}}" rel="stylesheet">
+      <link rel="stylesheet" href="{{ url_for('static', filename='font-awesome-4.7.0/css/font-awesome.min.css')}}">
+      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+   </head>
+
+   <body>
+         <h1>is it a hotdog?</h1>
+
+		 <form action="{{server_address}}/result" method="POST" 
+		 	enctype="multipart/form-data">
+
+			 <div class="wrapper">
+				<div class="file-upload">
+				   <input type="file" name="file" alt="input image" accept=".png, .jpg, .jpeg"/>
+				   <i class="fa fa-arrow-up"></i>
+				</div>
+
+				<div class="hero-image" style="height: 100%;">
+					<div class="hero-text">
+						<p>upload photo</p>
+					</div>
+				 </div>
+			 </div>
+			 
+			
+			 <input value="submit" type="submit" />
+        </form>
+
+   </body>
+</html>

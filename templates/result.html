@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>hotdog?</title>
+      <link href="{{ url_for('static', filename='result.css')}}" rel="stylesheet">
+      <link rel="stylesheet" href="{{ url_for('static', filename='font-awesome-4.7.0/css/font-awesome.min.css')}}">
+      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+   </head>
+
+   <body>
+	   <h1>is it a hotdog?</h1>
+      <div class="result">
+         <div class="hero-image">
+            <img id="previewImg" src="{{ url_for('static', filename='pic.jpg') }}" alt="input image" />
+            <div class="hero-text">
+				   <p>{{result}}</p>
+            </div>
+         </div>
+
+         <button onclick="window.location.href='{{server_address}}'">try again?</button>
+      </div>
+
+   </body>
+</html>
