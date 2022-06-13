@@ -4,13 +4,9 @@ from tensorflow.keras.applications.vgg16 import preprocess_input
 from tensorflow.keras.applications.vgg16 import decode_predictions
 from tensorflow.keras.applications.vgg16 import VGG16
 
-# from tensorflow.keras.applications.resnet50 import ResNet50
-# from tensorflow.keras.applications.resnet50 import preprocess_input, decode_predictions
-
 import ssl
 
 ssl._create_default_https_context = ssl._create_unverified_context
-# model = ResNet50(weights='imagenet')
 model = VGG16()
 
 def is_hotdog(file):

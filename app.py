@@ -1,5 +1,5 @@
 from flask import (
-    Blueprint, flash, redirect, render_template, request
+    Blueprint, Flask, flash, redirect, render_template, request
 )
 
 from .model import is_hotdog
@@ -44,3 +44,4 @@ def hotdog_result():
         result = "❌ not hotdog"
 
     return render_template('result.html', result = result, server_address = server_address)
+

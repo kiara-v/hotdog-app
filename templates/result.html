@@ -13,7 +13,7 @@
 	   <h1>is it a hotdog?</h1>
       <div class="result">
          <div class="hero-image">
-            <img id="previewImg" src="{{ url_for('static', filename='pic.jpg') }}" alt="input image" />
+            <img id="previewImg" src="{{ url_for('static', filename='pic.jpg')}}?sha=${sha}$" alt="input image" />
             <div class="hero-text">
 				   <p>{{result}}</p>
             </div>

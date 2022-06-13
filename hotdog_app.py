@@ -2,10 +2,30 @@ from flask import (
     Flask, flash, redirect, render_template, request
 )
 
-import model
+from . import model
+import os
 
 app = Flask(__name__)
 server_address = "http://127.0.0.1:5000"
+
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+app.config["CACHE_TYPE"] = "null"
+
+@app.after_request
+def add_header(r):
+    """
+    Add headers to both force latest IE rendering engine or Chrome Frame,
+    and also to cache the rendered page for 10 minutes.
+    """
+    r.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    r.headers["Pragma"] = "no-cache"
+    r.headers["Expires"] = "0"
+    r.headers['Cache-Control'] = 'public, max-age=0'
+    return r
+
+@app.context_processor
+def inject_git_sha():
+    return dict(sha=os.environ.get('GIT_HASH', 'none'))
 
 # A simple landing page
 @app.route('/')
