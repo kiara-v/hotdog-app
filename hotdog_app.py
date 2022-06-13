@@ -3,7 +3,7 @@ from flask import (
 )
 
 from . import model
-from waitress import serve
+# from waitress import serve
 import os
 
 app = Flask(__name__)
@@ -53,5 +53,5 @@ def hotdog_result():
     return render_template('result.html', result = result, server_address = server_address)
 
 if __name__ == '__main__':
-    serve(app, host='0.0.0.0', port=5000, url_scheme='https')
- 	# app.run()
+    # serve(app, host='0.0.0.0', port=5000, url_scheme='https')
+ 	app.run()
