@@ -1,13 +1,16 @@
 from tensorflow.keras.preprocessing.image import load_img
 from tensorflow.keras.preprocessing.image import img_to_array
-from tensorflow.keras.applications.vgg16 import preprocess_input
-from tensorflow.keras.applications.vgg16 import decode_predictions
-from tensorflow.keras.applications.vgg16 import VGG16
+# from tensorflow.keras.applications.vgg16 import preprocess_input
+# from tensorflow.keras.applications.vgg16 import decode_predictions
+# from tensorflow.keras.applications.vgg16 import VGG16
+
+from tensorflow.keras.applications.resnet50 import ResNet50
+from tensorflow.keras.applications.resnet50 import preprocess_input, decode_predictions
 
 import ssl
 
 ssl._create_default_https_context = ssl._create_unverified_context
-model = VGG16()
+model = ResNet50(weights='imagenet')
 
 def is_hotdog(file):
     file.save("static/pic.jpg")
