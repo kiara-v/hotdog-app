@@ -1,5 +1,5 @@
 from flask import (
-    Blueprint, Flask, flash, redirect, render_template, request
+    Blueprint, Flask, flash, redirect, render_template, request, url_for
 )
 
 from .model import is_hotdog
@@ -32,11 +32,11 @@ def hotdog_result():
 	# Redirect back to landing page if nothing was submitted
     if 'file' not in request.files:
         flash('No file uploaded')
-        return redirect(f'{index}/')
+        return redirect(url_for("index"))
     file = request.files['file']
     if file.filename == '':
         flash('No selected file')
-        return redirect(f'{index}/')
+        return redirect(url_for("index"))
 
     if is_hotdog(file):
         result = "✅ hotdog"
