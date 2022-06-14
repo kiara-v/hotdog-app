@@ -1,16 +1,15 @@
 from flask import (
-    Blueprint, flash, redirect, render_template, request
+    Blueprint, Flask, flash, redirect, render_template, request, url_for
 )
 
-from . import model
+from .model import is_hotdog
 
 base = Blueprint('base', __name__, template_folder='templates')
-server_address = "http://127.0.0.1:5000"
 
 # A simple landing page
 @base.route('/')
 def index():
-    return render_template('index.html', server_address = server_address)
+    return render_template('index.html')
     # base_page_html = f"""
     # <html>
     #    <body>
@@ -32,15 +31,15 @@ def hotdog_result():
 	# Redirect back to landing page if nothing was submitted
     if 'file' not in request.files:
         flash('No file uploaded')
-        return redirect(f'{server_address}/')
+        return redirect(url_for("index"))
     file = request.files['file']
     if file.filename == '':
         flash('No selected file')
-        return redirect(f'{server_address}/')
+        return redirect(url_for("index"))
 
-    if model.is_hotdog:
+    if is_hotdog(file):
         result = "✅ hotdog"
     else:
         result = "❌ not hotdog"
 
-    return render_template('result.html', result = result, server_address = server_address)
+    return render_template('result.html', result = result)

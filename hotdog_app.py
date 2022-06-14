@@ -1,13 +1,11 @@
 from flask import (
-    Flask, flash, redirect, render_template, request
+    Flask, flash, redirect, render_template, request, url_for
 )
 
 from . import model
-# from waitress import serve
 import os
 
 app = Flask(__name__)
-server_address = "http://127.0.0.1:5000"
 
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.config["CACHE_TYPE"] = "null"
@@ -31,7 +29,7 @@ def inject_git_sha():
 # A simple landing page
 @app.route('/')
 def index():
-    return render_template('index.html', server_address = server_address)
+    return render_template('index.html')
 
 # Page presenting results and option to try again
 @app.route('/result', methods=['GET','POST'])
@@ -39,19 +37,18 @@ def hotdog_result():
 	# Redirect back to landing page if nothing was submitted
     if 'file' not in request.files:
         flash('No file uploaded')
-        return redirect(f'{server_address}/')
+        return redirect(url_for("index"))
     file = request.files['file']
     if file.filename == '':
         flash('No selected file')
-        return redirect(f'{server_address}/')
+        return redirect(url_for("index"))
 
     if model.is_hotdog(file):
         result = "✅ hotdog"
     else:
         result = "❌ not hotdog"
 
-    return render_template('result.html', result = result, server_address = server_address)
+    return render_template('result.html', result = result)
 
 if __name__ == '__main__':
-    # serve(app, host='0.0.0.0', port=5000, url_scheme='https')
  	app.run()
