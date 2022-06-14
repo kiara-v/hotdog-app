@@ -2,7 +2,7 @@ from flask import (
     Flask, flash, redirect, render_template, request, url_for
 )
 
-from . import model
+from model import is_hotdog
 import os
 
 app = Flask(__name__)
@@ -43,7 +43,7 @@ def hotdog_result():
         flash('No selected file')
         return redirect(url_for("index"))
 
-    if model.is_hotdog(file):
+    if is_hotdog(file):
         result = "✅ hotdog"
     else:
         result = "❌ not hotdog"
