@@ -2,7 +2,7 @@ from flask import (
     Blueprint, Flask, flash, redirect, render_template, request, url_for
 )
 
-rom model import is_hotdog
+from model import is_hotdog
 
 base = Blueprint('base', __name__, template_folder='templates')
 
