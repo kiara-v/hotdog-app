@@ -2,7 +2,7 @@ from flask import (
     Blueprint, Flask, flash, redirect, render_template, request, url_for
 )
 
-from .model import is_hotdog
+from . import model
 
 base = Blueprint('base', __name__, template_folder='templates')
 
@@ -37,7 +37,7 @@ def hotdog_result():
         flash('No selected file')
         return redirect(url_for("index"))
 
-    if is_hotdog(file):
+    if model.is_hotdog(file):
         result = "✅ hotdog"
     else:
         result = "❌ not hotdog"
