@@ -2,7 +2,7 @@ from flask import (
     Blueprint, Flask, flash, redirect, render_template, request, url_for
 )
 
-from . import model
+import model
 
 base = Blueprint('base', __name__, template_folder='templates')
 

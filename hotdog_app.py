@@ -2,7 +2,7 @@ from flask import (
     Flask, flash, redirect, render_template, request, url_for
 )
 
-from . import model
+import model
 import os
 
 app = Flask(__name__)
