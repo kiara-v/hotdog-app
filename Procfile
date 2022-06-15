@@ -1,1 +1,1 @@
-web: gunicorn hotdog_app:app --max-requests 350
+web: gunicorn --preload --max-requests 350 hotdog_app:app
