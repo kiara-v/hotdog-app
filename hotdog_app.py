@@ -3,7 +3,7 @@ from flask import (
 )
 
 from model import is_hotdog
-import os
+# import os
 
 app = Flask(__name__)
 
@@ -17,9 +17,9 @@ def add_header(r):
     r.headers["Expires"] = "0"
     return r
 
-@app.context_processor
-def inject_git_sha():
-    return dict(sha=os.environ.get('GIT_HASH', 'none'))
+# @app.context_processor
+# def inject_git_sha():
+#     return dict(sha=os.environ.get('GIT_HASH', 'none'))
 
 # A simple landing page
 @app.route('/')
