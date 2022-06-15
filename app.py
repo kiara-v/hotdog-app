@@ -1,5 +1,5 @@
 from flask import (
-    Blueprint, Flask, flash, redirect, render_template, request, url_for
+    Blueprint, flash, redirect, render_template, request, url_for
 )
 
 from model import is_hotdog
