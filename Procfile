@@ -1,1 +1,1 @@
-web: gunicorn hotdog_app:app
+web: gunicorn hotdog_app:app --optimize_for_size --max_old_space_size=460
