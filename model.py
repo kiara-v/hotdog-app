@@ -29,7 +29,7 @@ def is_hotdog(file):
     # prepare for VGG model
     image = preprocess_input(image)
     # predict
-    yhat = model.predict(image))
+    yhat = model.predict(image)
     # convert
     label = decode_predictions(yhat)
     return label[0][0][1] == "hotdog"
