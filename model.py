@@ -13,9 +13,9 @@ from tensorflow.keras.applications.resnet50 import preprocess_input, decode_pred
 # from tensorflow.keras.applications.resnet50 import ResNet50
 # from tensorflow.keras.applications.resnet50 import preprocess_input, decode_predictions
 
-# import ssl
+import ssl
 
-# ssl._create_default_https_context = ssl._create_unverified_context
+ssl._create_default_https_context = ssl._create_unverified_context
 model = ResNet50(weights='imagenet')
 
 def is_hotdog(file):

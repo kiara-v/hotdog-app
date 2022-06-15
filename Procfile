@@ -1,1 +1,1 @@
-web: gunicorn hotdog_app:app 
+web: gunicorn hotdog_app:app --max-requests 250
