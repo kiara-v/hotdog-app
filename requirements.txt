@@ -5,3 +5,4 @@ itsdangerous==2.0.1
 requests==2.27.1
 tensorflow-cpu==2.8.0
 Pillow==2.6.1
+protobuf==3.20.1
