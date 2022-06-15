@@ -13,10 +13,9 @@ from tensorflow.keras.applications.resnet50 import preprocess_input, decode_pred
 # from tensorflow.keras.applications.resnet50 import ResNet50
 # from tensorflow.keras.applications.resnet50 import preprocess_input, decode_predictions
 
-import ssl
-import gc
+# import ssl
 
-ssl._create_default_https_context = ssl._create_unverified_context
+# ssl._create_default_https_context = ssl._create_unverified_context
 model = ResNet50(weights='imagenet')
 
 def is_hotdog(file):
@@ -30,8 +29,7 @@ def is_hotdog(file):
     # prepare for VGG model
     image = preprocess_input(image)
     # predict
-    yhat = model.predict(image)
-    gc.collect()
+    yhat = model.predict(image))
     # convert
     label = decode_predictions(yhat)
     return label[0][0][1] == "hotdog"
